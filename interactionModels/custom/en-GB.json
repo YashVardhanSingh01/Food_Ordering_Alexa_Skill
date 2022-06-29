@@ -1,0 +1,576 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my food order",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "GetAvailableRestaurantsIntent",
+          "slots": [],
+          "samples": [
+            "which restaurant is open",
+            "which places are open",
+            "do you have a list of restaurants",
+            "where can i order from",
+            "which restaurants are available"
+          ]
+        },
+        {
+          "name": "GetMenuIntent",
+          "slots": [
+            {
+              "name": "restaurant",
+              "type": "RESTAURANT",
+              "samples": [
+                "yes {restaurant}",
+                "order food from {restaurant}",
+                "{restaurant}"
+              ]
+            }
+          ],
+          "samples": [
+            "what is the menu at {restaurant}",
+            "i am craving {restaurant}",
+            "lets get {restaurant}",
+            "what do they have at {restaurant}",
+            "tell me the menu of {restaurant}",
+            "what is available at {restaurant}",
+            "what can i get from {restaurant}"
+          ]
+        },
+        {
+          "name": "GetOrderIntent",
+          "slots": [
+            {
+              "name": "main_dish",
+              "type": "MAIN_DISH",
+              "samples": [
+                "i want {main_dish}",
+                "{main_dish}"
+              ]
+            },
+            {
+              "name": "side_dish",
+              "type": "SIDE_DISH",
+              "samples": [
+                "get me a {side_dish}",
+                "{side_dish}"
+              ]
+            },
+            {
+              "name": "drink",
+              "type": "DRINK",
+              "samples": [
+                "{drink}",
+                "{number_d} {drink}"
+              ]
+            },
+            {
+              "name": "number_m",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "i want {number_m} of those",
+                "{number_m}"
+              ]
+            },
+            {
+              "name": "number_s",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "i want {number_m} of those",
+                "{number_m}"
+              ]
+            },
+            {
+              "name": "number_d",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "get me {number_d} of those",
+                "{number_d}"
+              ]
+            }
+          ],
+          "samples": [
+            "get me {number_m} {main_dish}  with {number_s} {side_dish} and {number_d} {drink}",
+            "can i get {number_s} {side_dish} and {number_d} {drink} ",
+            "can i get {number_m} {main_dish} and {number_d} {drink}",
+            "can i get {number_m} {main_dish} and {number_s} {side_dish}",
+            "can i get {number_d} {drink}",
+            "can i get {number_s} {side_dish}",
+            "can i get {number_m} {main_dish}",
+            "can i get {number_m} {main_dish} {number_s} {side_dish} and {number_d} {drink}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "id": "3",
+              "name": {
+                "value": "KFC",
+                "synonyms": [
+                  "k.f.c.",
+                  "kfc"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "name": {
+                "value": "Burger King",
+                "synonyms": [
+                  "burger king"
+                ]
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "Pizza Hut",
+                "synonyms": [
+                  "pizza-hut",
+                  "pizza hut"
+                ]
+              }
+            }
+          ],
+          "name": "RESTAURANT"
+        },
+        {
+          "values": [
+            {
+              "id": "2",
+              "name": {
+                "value": "burger",
+                "synonyms": [
+                  "cheeseburgers",
+                  "cheeseburger",
+                  "burgers"
+                ]
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "pizza",
+                "synonyms": [
+                  "pies",
+                  "pizzas",
+                  "pie"
+                ]
+              }
+            }
+          ],
+          "name": "MAIN_DISH"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "garlic bread",
+                "synonyms": [
+                  "breads",
+                  "garlic breads",
+                  "bread"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "french fries",
+                "synonyms": [
+                  "french-fries",
+                  "fries"
+                ]
+              }
+            }
+          ],
+          "name": "SIDE_DISH"
+        },
+        {
+          "values": [
+            {
+              "id": "2",
+              "name": {
+                "value": "Pepsi",
+                "synonyms": [
+                  "pepsis",
+                  "pepsi"
+                ]
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "CoCa-Cola",
+                "synonyms": [
+                  "Coca-Colas",
+                  "cocacolas",
+                  "coca colas",
+                  "cokes",
+                  "coke",
+                  "coca cola",
+                  "cocacola",
+                  "Coca Cola"
+                ]
+              }
+            }
+          ],
+          "name": "DRINK"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetMenuIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.648845033495"
+          },
+          "slots": [
+            {
+              "name": "restaurant",
+              "type": "RESTAURANT",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.648845033495.22748126474"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.648845033495.22748126474.1362213436085"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "GetOrderIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.934094189241"
+          },
+          "slots": [
+            {
+              "name": "main_dish",
+              "type": "MAIN_DISH",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.934094189241.228789422131"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.934094189241.228789422131.517439208339"
+                }
+              ]
+            },
+            {
+              "name": "side_dish",
+              "type": "SIDE_DISH",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.934094189241.1128817275142"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.934094189241.1128817275142.461289134256"
+                }
+              ]
+            },
+            {
+              "name": "drink",
+              "type": "DRINK",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.934094189241.598063440776"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.934094189241.598063440776.1015667117912"
+                }
+              ]
+            },
+            {
+              "name": "number_m",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.934094189241.1228821128643"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.934094189241.1228821128643.727085160670",
+                  "value": "0"
+                },
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.934094189241.1228821128643.1112197213742",
+                  "value": "10"
+                }
+              ]
+            },
+            {
+              "name": "number_s",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.934094189241.221329907602"
+              },
+              "validations": [
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.934094189241.221329907602.681706231728",
+                  "value": "10"
+                },
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.934094189241.221329907602.1380581277736",
+                  "value": "0"
+                }
+              ]
+            },
+            {
+              "name": "number_d",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.934094189241.692199827151"
+              },
+              "validations": [
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.934094189241.692199827151.1077057665771",
+                  "value": "5"
+                },
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.934094189241.692199827151.266372265507",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Intent.648845033495",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Did you select {restaurant} as your restaurant of choice?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.648845033495.22748126474.1362213436085",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please select a restaurant from the five restaurants available now"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.648845033495.22748126474",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please tell which restaurant would you like to order from"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.934094189241.228789422131",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please select a main dish from the menu of you selected restaurant"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.228789422131.517439208339",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please select a main dish only form the available options"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.934094189241.1128817275142",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please select a side dish from your selected restaurant"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.1128817275142.461289134256",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please selected a side dish only from the available options"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.934094189241.598063440776",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please select a drink of your choice"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.598063440776.1015667117912",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please select a drink only from the available options"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.934094189241.1228821128643",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "quantity of main dish please"
+          },
+          {
+            "type": "PlainText",
+            "value": "please tell the number of {main_dish} s you want"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.1228821128643.727085160670",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please enter a quantity greater than equal to zero"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.1228821128643.1112197213742",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "ooh that\u0027s quite a big order, we can only get ten of those"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.934094189241.221329907602",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "quantity of side dish please"
+          },
+          {
+            "type": "PlainText",
+            "value": "please tell the quantity of {side_dish} "
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.221329907602.681706231728",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "oohh that\u0027s quite a big order. we can only process a maximum of ten of those"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.221329907602.1380581277736",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please enter a quantity greater than or equal to zero as quantity"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.934094189241.692199827151",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "quantity of drinks please"
+          },
+          {
+            "type": "PlainText",
+            "value": "please tell how many {drink} you want"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.692199827151.1077057665771",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "sorry there\u0027s a limit of five drinks per order"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.934094189241.692199827151.266372265507",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please enter a quantity greater than equal to zero"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.934094189241",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "did you select {number_m} {main_dish} , {number_s} {side_dish} and {number_d} {drink} as your order?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "17"
+}
